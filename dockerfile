@@ -13,6 +13,7 @@ RUN pip3 install -r requirements.txt
 # Copia el resto de los archivos al directorio de trabajo
 COPY . .
 
+
 # Expone el puerto 8001 para que la aplicación sea accesible desde fuera del contenedor
 EXPOSE 8001
 

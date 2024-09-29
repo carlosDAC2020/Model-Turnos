@@ -94,10 +94,13 @@
             font-weight: bold;
             color: #555;
         }
+        .btn-reset{
+            border:2px solid black;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container">  
         <h1>Detalles del Cronograma de Semana con ID: {{ cronograma.id }}</h1>
         <table id="scheduleTable">
             <thead>
@@ -125,10 +128,11 @@
         </div>
         <div class="employee-info-container">
             <h1>Información de Empleados</h1>
-            <div id="employeeCards">
+            <div class="row" id="employeeCards">
                 <!-- Tarjetas dinámicas de empleados se generarán aquí -->
             </div>
         </div>
+        
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {

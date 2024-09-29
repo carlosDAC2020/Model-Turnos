@@ -15,7 +15,7 @@ terraform {
 # Configuración del proveedor de AWS
 provider "aws" {
   # Región de AWS a utilizar
-  region     = "us-east-1"           
+  region     = "us-east-2"           
   access_key = var.access_key
   secret_key = var.secret_key
 }

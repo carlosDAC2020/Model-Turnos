@@ -42,4 +42,4 @@
 
     - name: Arrancar el container 
       become: yes
-      command: sudo docker run -d -p 80:5000 cdapdev2020/turn-model:{{ IMAGE_TAG }}
+      command: sudo docker run -d -p 8080:5000 cdapdev2020/turn-model:{{ IMAGE_TAG }}

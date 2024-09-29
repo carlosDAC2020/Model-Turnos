@@ -63,7 +63,8 @@ jobs:
           cat inventory
           export ANSIBLE_HOST_KEY_CHECKING=False
           export IMAGE_TAG=${{ needs.build.outputs.tag_id }}
-          ansible-playbook -i inventory turn-model.yaml 
+          ansible-playbook -i inventory turn-model.yaml -vvv
+
   
   
   

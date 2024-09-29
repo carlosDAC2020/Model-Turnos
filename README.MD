@@ -48,7 +48,7 @@ py main.py
 
 
 
-### Asignador de Turnos
+### Logica interna de asignador de Turnos
 
 La clase `AsignadorTurnos` se encarga de asignar turnos a un grupo de cajeras en base a un cronograma mensual o semanal. La asignación de turnos se realiza considerando diversos factores como la cantidad de días trabajados por cada cajera, los días consecutivos trabajados, y las restricciones para evitar sobrecarga laboral.
 

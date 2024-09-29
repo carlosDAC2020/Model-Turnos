@@ -6,10 +6,9 @@ WORKDIR /app
 
 # Instala locales y genera es_ES.UTF-8
 RUN apt-get update && \
-    apt-get install -y locales --fix-missing && \
-    dpkg-reconfigure locales && \
-    locale-gen es_ES.UTF-8 && \
-    update-locale LANG=es_ES.UTF-8
+    apt-get install -y locales && \
+    echo "es_ES.UTF-8 UTF-8" > /etc/locale.gen && \
+    locale-gen
 
 # Establece las variables de entorno para la localización
 ENV LANG es_ES.UTF-8

@@ -74,7 +74,8 @@ resource "aws_security_group" "turnos" {
     # cliente angular
 resource "aws_instance" "turnos_client" {
   # ID de la AMI a utilizar
-  ami             = "ami-07d9b9ddc6cd8dd30"     
+  ami             = "ami-037774efca2da0726"     
+  
   # Tipo de instancia   
   instance_type   = "t2.micro"                  
   # Nombre de la clave SSH a asociar    

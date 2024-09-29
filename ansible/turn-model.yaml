@@ -38,7 +38,7 @@
     
     - name: Descarga de imagen de aplicacion 
       become: yes
-      command: sudo docker pull cdapdev2020/turn-model:{{ IMAGE_TAG }}
+      command: sudo docker pull cdapdev2020/turn-model:{{ IMAGE_TAG }} 
 
     - name: Arrancar el container 
       become: yes

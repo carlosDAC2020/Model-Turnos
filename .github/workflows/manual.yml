@@ -56,14 +56,14 @@ jobs:
           cd ..
           
           # Esperar 3 minutos en lo q las inatanxcias de EC2 arrancan completamente 
-          sleep 180
+          sleep 50
 
           cd ansible
           # host guardados
           cat inventory
           export ANSIBLE_HOST_KEY_CHECKING=False
           export IMAGE_TAG=${{ needs.build.outputs.tag_id }}
-          ansible-playbook -i inventory turn-model.yaml -vvv
+          ansible-playbook -i inventory turn-model.yaml 
 
   
   

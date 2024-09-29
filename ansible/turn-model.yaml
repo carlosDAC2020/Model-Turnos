@@ -1,7 +1,7 @@
 ---
 - name: Configuracion general
   hosts: all
-  remote_user: ec2-user
+  remote_user: ubuntu
   gather_facts: no
   tasks:
     - name: Actualizar la lista de paquetes en todos los servidores
@@ -29,7 +29,7 @@
 
 - name: Configuracion para el cliente del modelo de turnos
   hosts: server
-  remote_user: ec2-user
+  remote_user: ubuntu
   gather_facts: no
   tasks:
     - name: Definir variables de entorno

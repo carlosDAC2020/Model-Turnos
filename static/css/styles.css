@@ -1,0 +1,305 @@
+/* paleta de colores  */
+:root {
+    /* Rojo */
+    --red: #e30613;
+    
+    /* Azul */
+    --blue: #164094b9;
+
+    /* Azul suave */
+    --blueslow: #EDF2F4;
+
+    /* Verde */
+    --green: rgba(130, 207, 130, 0.897);
+}
+
+
+/* Estilos globales */
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: var(--blueslow);
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.center-horizontal {
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    color: #2B2D42;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para la fila 1: Gestión de Empleados y Generación de Cronogramas */
+.fila-1 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Espacio entre filas */
+}
+
+.gestion-empleados, .gestion-cronogramas {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1; /* Para que ocupen el mismo espacio */
+    margin: 0 10px; /* Espacio entre columnas */
+}
+
+.empleado-form, .cronograma-form {
+    display: flex;
+    gap: 10px;
+}
+
+select, input[type="date"], button {
+    width: 96%; /* Ocupa el 100% del ancho del contenedor */
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Para que el padding no agregue más ancho del esperado */
+}
+
+button {
+    background-color: var(--blue);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(0, 0, 63);
+}
+
+.btn-filtro {
+    background-color: var(--blue);
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 120px;
+}
+
+/* Estilos para la fila 2: Cronogramas Generados */
+.fila-2 {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.lista-empleados, .lista-cronogramas {
+    height: 200px;
+    margin-top: 20px;
+    overflow-y: auto;
+}
+
+.lista-cronogramas {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Permite que las tarjetas se muevan a la siguiente línea si no caben */
+}
+
+.filtros-cronogramas {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.tarjeta-cronograma {
+    background-color: #EDF2F4;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: calc(33.33% - 20px); /* Ajuste para mostrar 3 tarjetas por fila */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(33.33% - 20px); /* Ajuste flexible para que se adapten al espacio */
+}
+
+.tarjeta-cronograma h3 {
+    margin-top: 0;
+    color: #2B2D42;
+}
+
+.tarjeta-cronograma p {
+    margin: 5px 0;
+    color: #2B2D42;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .tarjeta-cronograma {
+        width: calc(50% - 20px); /* Ajusta a 2 tarjetas por fila en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .tarjeta-cronograma {
+        width: 100%; /* En pantallas pequeñas, las tarjetas ocupan el 100% */
+    }
+}
+
+.lista-empleados div {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: var(--blueslow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fs {
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+label {
+    padding: 10px;
+    font-size: 12px; /* Tamaño de fuente pequeño */
+}
+
+.fst {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.generarCrono {
+    width: 97%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 12px;
+}
+::-webkit-scrollbar-track {
+    background: white;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(70, 70, 199, 0.274);
+    border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--blue);
+}
+
+/* Estilo para el icono de eliminación */
+.eliminar-empleado {
+    cursor: pointer;
+    color: var(--red); /* Color rojo para indicar eliminación */
+    display: inline-flex; /* Ajustar tamaño */
+    align-items: center; /* Centrar verticalmente */
+    padding: 0;
+    margin-left: 10px; /* Espacio desde el nombre */
+}
+
+.eliminar-empleado:hover {
+    color: darkred; /* Cambiar color al pasar el ratón */
+}
+
+/* Estilo para el icono de eliminación */
+.eliminar-cronograma {
+    cursor: pointer;
+    color: var(--red); /* Color rojo para indicar eliminación */
+    position: absolute; /* Posicionar en relación con el contenedor */
+    top: 10px; /* Ajustar la posición desde la parte superior */
+    right: 10px; /* Ajustar la posición desde la derecha */
+    padding: 0;
+}
+
+.eliminar-cronograma:hover {
+    color: darkred; /* Cambiar color al pasar el ratón */
+}
+
+.parrafo {
+    padding: 10px; /* Aumentar el padding */
+    border-radius: 10px;
+    background-color: var(--green);
+    position: relative;
+    display: flex; /* Usar flexbox para alinear el icono y el texto */
+    align-items: center; /* Centrar verticalmente el contenido */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.447); /* Sombra */
+    margin-bottom: 10px;
+}
+
+.informacion {
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+    font-size: 20px; /* Aumentar tamaño del icono si es necesario */
+    color: white; /* Color del icono */
+}
+
+.parrafo p {
+    margin: 0; /* Eliminar margen del párrafo */
+    color: white; /* Color del texto */
+    font-size: 16px; /* Tamaño de texto del párrafo */
+}
+
+/* Estilos para la tarjeta */
+.card {
+    position: relative;
+    background-color: var(--blueslow) ; /* Forzar fondo blanco */
+    border: 1px solid #cccccc; /* Borde simple */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.418); /* Sombra ligera */
+    padding: 20px; /* Espaciado interno */
+    width: 120px; /* Ajustar tamaño */
+}
+
+/* Forzar color de fondo del contenedor padre si es necesario */
+.lista-cronogramas {
+    background-color: transparent !important; /* Fondo transparente o blanco */
+    padding: 10px;
+}
+
+/* Flexbox para alinear ID y Tipo */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: start; /* Alinear los elementos a la izquierda */
+    gap: 10px;
+}
+
+/* Estilos para el título */
+.card-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Estilos para el texto */
+.card-text {
+    margin: 0;
+    font-size: 15px;
+}
+
+.ver-detalles {
+    margin-top: 10px;
+    color: var(--blue); /* Color del enlace */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.ver-detalles:hover {
+    color: rgb(0, 0, 63); /* Color al hacer hover */
+}

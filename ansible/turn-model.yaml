@@ -1,0 +1,45 @@
+---
+- name: Configuracion general
+  hosts: all
+  remote_user: ubuntu
+  gather_facts: no
+  tasks:
+    - name: Actualizar la lista de paquetes en todos los servidores
+      become: yes
+      apt:
+        update_cache: yes
+    
+    - name: Instalar Docker en todos los servidores
+      become: yes
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Iniciar el servicio de Docker en todos los servidores
+      become: yes
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Dar permisos de ejecucion a docker 
+      become: yes
+      command: sudo usermod -aG docker $USER
+
+
+- name: Configuracion para el cliente del modelo de turnos
+  hosts: server
+  remote_user: ubuntu
+  gather_facts: no
+  tasks:
+    - name: Definir variables de entorno
+      set_fact:
+        IMAGE_TAG: "{{ lookup('env', 'IMAGE_TAG') }}"
+    
+    - name: Descarga de imagen de aplicacion 
+      become: yes
+      command: sudo docker pull cdapdev2020/turn-model:{{ IMAGE_TAG }}
+
+    - name: Arrancar el container 
+      become: yes
+      command: sudo docker run -d -p 80:5000 cdapdev2020/turn-model:{{ IMAGE_TAG }}
